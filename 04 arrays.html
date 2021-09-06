@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Arrays</h1>
+  <script type="text/javascript">
+    "use strict";
+    let arr = new Array();
+    let fruits = ["Apple", "Orange", "Plum",];
+
+    console.log(fruits[1]);
+
+    fruits[2] = 'Pear';
+    fruits[3] = 'Lemon';
+
+    console.log(fruits.length);
+    console.log(fruits);
+    //Array methods
+
+    //pop Extracts the last element of the array and returns it. this is the fast method
+    console.log(fruits.pop());
+
+    //push Append the element to the end of the array:
+    fruits.push('Pear');
+    console.log(fruits);
+
+    //shift Extracts the first element of the array and returns it:
+    console.log(fruits.shift());
+
+    //unshift Add the element to the beginning of the array:
+    console.log(fruits.unshift('Pear'));
+    console.log(fruits);
+
+    //multidim Array
+    let matrix = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ];
+    console.log(matrix[1][1]); //5
+
+    /*
+    Let’s try 5 array operations.
+
+    Create an array styles with items “Jazz” and “Blues”.
+    Append “Rock-n-Roll” to the end.
+    Replace the value in the middle by “Classics”. Your code for finding the middle value should work for any arrays with odd length.
+    Strip off the first value of the array and show it.
+    Prepend Rap and Reggae to the array.
+    */
+
+    let styles = ['Jazz','Blues'];
+    styles.push('Rock-n-Roll');
+    styles[Math.floor(styles.length/2)] = 'Classics';
+    console.log(styles.shift());
+    styles.unshift('Reggae');
+    styles.unshift('Rap');
+
+    console.log(styles);
+
+    /*
+    Write the function sumInput() that:
+
+    Asks the user for values using prompt and stores the values in the array.
+    Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
+    Calculates and returns the sum of array items.
+    P.S. A zero 0 is a valid number, please don’t stop the input on zero.
+    */
+    function sumInput() {
+      let numbers = [];
+      while(true){
+        let sum = 0;
+        let value = prompt('please gimme some numbers', 0);
+        if(value === null || !isFinite(value) || value === '') break;
+        numbers.push(value);
+        for(let i = 0; i < numbers.length; i++){
+          sum += +numbers[i];
+        }
+        console.log(sum);
+      }
+    }
+    //sumInput();
+
+    /*
+    The task is: find the contiguous subarray of arr with the maximal sum of items.
+
+    Write the function getMaxSubSum(arr) that will return that sum.
+
+    For instance:
+
+    getMaxSubSum([-1, 2, 3, -9]) == 5 (the sum of highlighted items)
+    getMaxSubSum([2, -1, 2, 3, -9]) == 6
+    getMaxSubSum([-1, 2, 3, -9, 11]) == 11
+    getMaxSubSum([-2, -1, 1, 2]) == 3
+    getMaxSubSum([100, -9, 2, -3, 5]) == 100
+    getMaxSubSum([1, 2, 3]) == 6 (take all)
+    */
+    function getMaxSubSum(arr) {
+      let maxSum = 0;
+      let partialSum = 0;
+
+      for (let item of arr) { // for each item of arr
+        partialSum += item; // add it to partialSum
+        maxSum = Math.max(maxSum, partialSum); // remember the maximum
+        if (partialSum < 0) partialSum = 0; // zero if negative
+      }
+
+      console.log(maxSum);
+    }
+    getMaxSubSum([-1, 2, 3, -9]);
+    getMaxSubSum([2, -1, 2, 3, -9]);
+    getMaxSubSum([-1, 2, 3, -9, 11]);
+    getMaxSubSum([-2, -1, 1, 2]);
+    getMaxSubSum([100, -9, 2, -3, 5]);
+    getMaxSubSum([1, 2, 3]);
+
+  </script>
+</body>
+</html>

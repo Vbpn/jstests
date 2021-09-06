@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Numbers</h1>
+  <script type="text/javascript">
+    "use strict";
+    //Create a script that prompts the visitor to enter two numbers and then shows their sum.
+    /*let a = +prompt('gimme the first value', 0);
+    let b = +prompt('gimme the second value', 0);
+    console.log(a + b);*/
+
+    //rounding the right way
+    console.log((1.35*10).toFixed(1)/10);
+    console.log((6.35*10).toFixed(1)/10);
+
+    /*
+    Create a function readNumber which prompts for a number until the visitor enters a valid numeric value.
+
+    The resulting value must be returned as a number.
+
+    The visitor can also stop the process by entering an empty line or pressing “CANCEL”. In that case, the function should return null.
+
+    function readNumber() {
+      let num;
+
+      do {
+        num = prompt("Enter a number please?", 0);
+      } while ( !isFinite(num) );
+
+      if (num === null || num === '') return null;
+
+      return +num;
+    }
+
+    alert(`Read: ${readNumber()}`);
+    */
+
+    function random(min, max){
+       return min + Math.random() * (max - min);
+    }
+    //console.log(random(-10,10));
+
+    function randomInteger(min, max){ //adjust interval borders
+      let rand = min - 0.5 + Math.random() * (max - min + 1);
+      return Math.round(rand);
+    }
+    console.log(randomInteger(3,5));
+
+  </script>
+</body>
+</html>

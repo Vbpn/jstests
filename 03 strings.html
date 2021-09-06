@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Strings</title>
+</head>
+<body>
+  <h1>Strings</h1>
+  <script>
+    "use strict";
+    /*
+    //list of characters according to UTF
+    let str = '';
+
+    for (let i = 65; i <= 220; i++) {
+      str += String.fromCodePoint(i);
+    }
+    console.log(str);*/
+
+    let str1 = 'Widget with id';
+    if (~str1.indexOf("Widget")) { // `~` does +1, if(0) == false, if(0 + 1) == true
+      console.log( 'Found it!' );
+    }
+
+    console.log(str1.includes('th')); //true
+    console.log(str1.startsWith("Wid"));
+
+    console.log(str1.slice(5,10));
+    console.log(str1.substr(-6,6));
+
+    // Write a function ucFirst(str) that returns the string str with the uppercased first character, for instance:
+    function ucFirst(str){
+      if(!str) return str;
+      return str = str[0].toUpperCase() + str.substr(1, str.length);
+    }
+
+    /* Write a function checkSpam(str) that returns true if str contains ‘viagra’ or ‘XXX’, otherwise false.
+    The function must be case-insensitive:
+
+    checkSpam('buy ViAgRA now') == true
+    checkSpam('free xxxxx') == true
+    checkSpam("innocent rabbit") == false
+    */
+    function checkSpam(str){
+      str = str.toLowerCase();
+      let spam_words = ['viagra','xxx'];
+      for (const element of spam_words){
+        if(str.includes(element)) return true;
+      }
+      return false;
+    }
+    console.log(checkSpam('buy ViAgRA now'));
+    console.log(checkSpam('free xxxxx'));
+    console.log(checkSpam('innocent rabbit'));
+
+    /*
+    Create a function truncate(str, maxlength) that checks the length of the str and, if it exceeds maxlength – replaces the end of str with the ellipsis character "…", to make its length equal to maxlength.
+
+    The result of the function should be the truncated (if needed) string.
+
+    For instance:
+
+    truncate("What I'd like to tell on this topic is:", 20) = "What I'd like to te…"
+
+    truncate("Hi everyone!", 20) = "Hi everyone!"
+    */
+    function truncate(str, maxlength){
+      if(str.length > maxlength) return str = str.slice(0,maxlength) + '...';
+      return str;
+    }
+    console.log(truncate("What I'd like to tell on this topic is:", 20));
+    console.log(truncate("Hi everyone!", 20));
+
+    /*
+    We have a cost in the form "$120". That is: the dollar sign goes first, and then the number.
+    Create a function extractCurrencyValue(str) that would extract the numeric value from such string and return it.
+
+    The example:
+    alert( extractCurrencyValue('$120') === 120 ); // true
+    */
+
+    function extractCurrencyValue(str) {
+      for (let i = 0; i <= 255; i++) {
+        if (isFinite(str[i])) {
+          return parseFloat(str.slice(i).trim());
+        }
+      }
+    }
+    console.log(extractCurrencyValue('120 RUB') === 120);
+    console.log(extractCurrencyValue('$120') === 120);
+    console.log(extractCurrencyValue('$120.50') === 120.50); // kek
+
+  </script>
+</body>
+</html>
