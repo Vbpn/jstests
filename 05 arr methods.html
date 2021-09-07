@@ -234,6 +234,35 @@ let usersMapped = users.map(
 //console.log(usersMapped[0].id);
 //console.log(usersMapped);
 
+let john1 = { name: "John", age: 25 };
+let pete1 = { name: "Pete", age: 30 };
+let mary1 = { name: "Mary", age: 28 };
+
+let usersArr = [ pete1, john1, mary1 ];
+sortByAge(usersArr);
+//sortByName(usersArr);
+
+function sortByAge(arr){
+  arr.sort((a, b) => a.age - b.age);
+}
+
+function sortByName(arr){
+  arr.sort(function(a, b){
+    let nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    let nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    // names must be equal
+    return 0;
+  });
+}
+console.log(usersArr);
+
+
 
 </script>
 
