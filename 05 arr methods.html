@@ -300,6 +300,12 @@ for (let key in count) {
   console.log(`${key}: ${count[key]}`);
 }
 
+/*Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+*/
+function getAverageAge(users){
+  return Math.floor(users.reduce((sum, current) => sum + current.age, 0) / users.length);
+}
+console.log(getAverageAge(usersArr));
 
 </script>
 
