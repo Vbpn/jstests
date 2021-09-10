@@ -314,9 +314,45 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
   "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 function unique(arr){
+  let newarr = [];
+  arr.forEach(function(item){
+    newarr.includes(item) ? '' : newarr.push(item);
+  });
+  return newarr;
+}
+console.log(unique(strings));
+/* keyed object from an array
+
+let users = [
+  {id: 'john', name: "John Smith", age: 20},
+  {id: 'ann', name: "Ann Smith", age: 24},
+  {id: 'pete', name: "Pete Peterson", age: 31},
+];
+
+let usersById = groupById(users);
+
+// after the call we should have:
+
+usersById = {
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
+}
+
+In this task we assume that id is unique. There may be no two array items with the same id.
+
+Please use array .reduce method in the solution
+*/
+let userswithid = [
+  {id: 'john', name: "John Smith", age: 20},
+  {id: 'ann', name: "Ann Smith", age: 24},
+  {id: 'pete', name: "Pete Peterson", age: 31},
+];
+
+function groupById(users){
   
 }
-console.log(unique (strings));
+groupById(userswithid);
 
 </script>
 
