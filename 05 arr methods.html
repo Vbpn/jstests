@@ -360,6 +360,20 @@ function groupById(users){
 let usersById = groupById(userswithid);
 console.log(usersById);
 
+/* key is the key of an obj to put to order:
+
+const convertArrayToObject = (array, key) => {
+  const initialValue = {};
+  return array.reduce((obj, item) => {
+    return {
+      ...obj,
+      [item[key]]: item,
+    };
+  }, initialValue);
+};
+
+*/
+
 </script>
 
 </body>
