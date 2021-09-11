@@ -350,9 +350,15 @@ let userswithid = [
 ];
 
 function groupById(users){
-  
+  let initval = {};
+  return users.reduce( (obj, item) => {
+    return {...obj,
+    [item.id] : item
+    };
+  }, initval);
 }
-groupById(userswithid);
+let usersById = groupById(userswithid);
+console.log(usersById);
 
 </script>
 
