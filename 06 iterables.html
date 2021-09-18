@@ -39,6 +39,28 @@
   for (let num of range) {
     console.log(num); // 1, then 2, 3, 4, 5
   }
+/*
+  let str1 = 'test';
+  for(let char of str1){
+    console.log(char);
+  }
+*/
+
+let arrayLike = {
+  0: "Hello",
+  1: "World",
+  length: 2
+};
+let arr = Array.from(arrayLike); // (*)
+console.log(arr.pop());
+
+//aware of. slice
+function slice(str, start, end) {
+  return Array.from(str).slice(start, end).join('');
+}
+
+let str = '𝒳😂𩷶';
+console.log(slice(str, 1, 3));
 
   </script>
 
