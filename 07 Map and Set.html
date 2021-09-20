@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+  <h1>Map and Set</h1>
   <script type="text/javascript">
   "use strict";
   // function returns unique values from an array
@@ -18,20 +19,35 @@ let values = ["Hare", "Krishna", "Hare", "Krishna",
   "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 
-console.log( unique(values) ); 
+console.log( unique(values) );
+
 // filter anagrams
 function aclean(arr){
   let set = new Set();
-  let newarr = arr.map(elem => elem.toLowerCase().split(""));
+  let newarr = arr.map(elem => [elem.toLowerCase().split("").sort().join(""), elem]);
+  let result = [];
   for(let item of newarr){
-    set.add(item);
+    if(set.has(item[0])){
+      continue;
+    }else{
+      set.add(item[0]);
+      result.push(item[1]);
+    }
   }
-  return Array.from(set);
+  return result;
 }
 
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
 console.log( aclean(arr) ); // "nap,
+
+/* comment:
+it's better to use map.set(sorted, word);
+
+  If we ever meet a word the same letter-sorted form again, then it would overwrite the previous value with the same key in the map. So we’ll always have at maximum one word per letter-form.
+
+  return Array.from(map.values());
+*/
 
   </script>
 
