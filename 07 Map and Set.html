@@ -49,6 +49,12 @@ it's better to use map.set(sorted, word);
   return Array.from(map.values());
 */
 
+let map = new Map();
+map.set('key','value');
+let keys = [...map.keys()];
+keys.push('test');
+console.log(keys);
+
   </script>
 
 </body>
